@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp'
 import Header from './components/Header';
+import CreateEventListing from './pages/CreateEventListing';
 import PrivateRoute from './components/PrivateRoute';
 
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path='/about' element={<About />}/>
         <Route element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />}/>
+          <Route path='/create-event' element={<CreateEventListing />} />
         </Route>
         <Route path='/sign-in' element={<SignIn />}/>
         <Route path='/sign-up' element={<SignUp />}/>
