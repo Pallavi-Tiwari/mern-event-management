@@ -129,6 +129,22 @@ export default function Profile() {
       setShowListingError(true);
     }
   }
+  const handleListingDelete = async (listingID) => {
+    try {
+      const res = await fetch(`/api/listing/delete/${listingID}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if(data.success === false) {
+        console.log(data.message);
+        return;
+      }
+      setEventListings((prev) => prev.filter((listing) => listing._id !== listingID));
+    } catch(error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className='p-3 max-w-lg mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
