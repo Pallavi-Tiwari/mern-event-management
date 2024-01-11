@@ -10,7 +10,15 @@ const listingSchema = new mongoose.Schema (
             type: String,
             required: true,
         },
-        address: {
+        startsAt: {
+            type: String,
+            required: true,
+        },
+        duration: {
+            type: Number,
+            required: true,
+        },
+        location: {
             type: String,
             required: true,
         },
@@ -19,6 +27,10 @@ const listingSchema = new mongoose.Schema (
             required: true,
         },
         discountPrice: {
+            type: Number,
+            required: true,
+        },
+        ageAllowed: {
             type: Number,
             required: true,
         },
