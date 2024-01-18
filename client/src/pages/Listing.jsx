@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
 import { Navigation } from 'swiper/modules';
+import Contact from '../components/Contact';
 import 'swiper/css/bundle';
 import {
     FaChair,
