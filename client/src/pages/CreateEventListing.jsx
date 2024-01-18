@@ -186,7 +186,7 @@ export default function CreateEventListing() {
                             </div>
                         </div>
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='seat' min='1' max='2000' required onChange={handleChange} value={formData.value} checked={formData.seat} />
+                            <input type='number' id='seat' min='1' max='5000' required onChange={handleChange} value={formData.value} checked={formData.seat} />
                             <p>Seats</p>
                         </div>
                         <div className='flex items-center gap-4'>
