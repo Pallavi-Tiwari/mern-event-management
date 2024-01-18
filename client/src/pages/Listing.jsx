@@ -10,7 +10,6 @@ import {
     FaChild,
     FaClock,
     FaHourglassEnd,
-    FaLayerGroup,
     FaMapMarkerAlt,
     FaMoneyBill,
     FaParking,
@@ -24,7 +23,8 @@ export default function Listing() {
     const [error, setError] = useState(false);
     const [copied, setCopied] = useState(false);
     const [contact, setContact] = useState(false);
-    const [ticketCount, setTicketCount] = useState(0);
+    const [count, setCount] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     const params = useParams();
     const {currentUser} = useSelector((state) => state.user);
 
@@ -50,6 +50,10 @@ export default function Listing() {
         fetchEventListing();
     }, [params.listingId]);
 
+    const handleChange = (e) => {console.log(typeof(count),count);
+        setCount(parseInt(e.target.value));
+        setTotalPrice(parseInt(e.target.value) * eventListing.regularPrice);
+    }
  return (
     <main>
         {loading && <p className='text-center my-7 text-2xl'>Loading...</p>}
@@ -89,7 +93,7 @@ export default function Listing() {
           )}
           <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>  
             <div className='flex flex-row item-center flex-wrap'>
-                <p className='basis-1/2 text-2xl font-semibold'>
+                <p className='text-2xl font-semibold'>
                     {eventListing.name}
                 </p>
             </div>
@@ -98,23 +102,38 @@ export default function Listing() {
               {eventListing.location}
             </p>
             <div className='flex gap-4'>
-                <p className='bg-red-900 w-full max-w-[200px] text-white text-center p-1 rounded-md'>
+                <p className='bg-blue-900 w-full max-w-[200px] h-10 text-white text-center p-1 rounded-md'>
                     {eventListing.type === 'private' ? '{<FaUser-lock>}Private Event' : 'Social Event'}
                 </p>
-                <p className='basis-1/2 text-2xl font-semibold bg-green-900 w-full max-w-[150px] text-white text-center p-1 rounded-md'>
+                <p className='text-2xl font-semibold bg-blue-900 w-full max-w-[150px] h-10 text-white text-center p-1 rounded-md'>
                     ${''}
                     {eventListing.offer
                         ? eventListing.regularPrice.toLocaleString('en-US')
                         : eventListing.discountPrice.toLocaleString('en-US')}
-                    {eventListing.type === 'private' && ' /ticket'} <span className='text-sm'>{'per ticket'}</span>
+                    {eventListing.type === 'private' && ' /ticket'}
                 </p>
                 {eventListing.offer && (
-                    <p className='text-2xl font-semibold bg-green-900 w-full max-w-[150px] text-white text-center p-1 rounded-md'>
+                    <p className='text-2xl font-semibold bg-blue-900 w-full max-w-[150px] h-10 text-white text-center p-1 rounded-md'>
                         ${+eventListing.regularPrice - +eventListing.discountPrice} <span className='text-sm'>{'OFF'}</span> 
                     </p>
-                )}
-               
+                )}  
             </div>
+                {(count===0) || (count<6) ? 
+                    ( <div className='flex gap-4 h-10 text-white text-xl p-1'>
+                        <input className='bg-blue-900 w-full max-w-[150px] text-center  rounded-md' 
+                        type='number' min={0} max={7} value={count}
+                        onChange={handleChange} placeholder='Quantity' required />
+                        <p className='bg-green-900 w-full max-w-[250px] text-center  rounded-md' >Total price: $ {totalPrice}</p>
+                    </div>)
+                        :
+                    (<div className='flex gap-4 h-10 text-white text-xl p-1 rounded-md'>
+                        <input className='bg-blue-900 w-full max-w-[150px] text-center rounded-md' 
+                        type='number' min={0} max={6} value={count}
+                        onChange={handleChange} placeholder='Quantity' required />
+                        <p className='bg-green-900 w-full max-w-[250px] text-center rounded-md' >Total price: $ {totalPrice}</p>
+                        <span className='text-red-900 text-center p-1'>You can buy 5 tickets max.</span>
+                    </div>)
+                }
             <p className='text-slate-800'>
               <span className='font-semibold text-black'>Description - </span>
               {eventListing.description}
