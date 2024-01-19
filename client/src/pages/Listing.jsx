@@ -122,14 +122,14 @@ export default function Listing() {
                 {(count===0) || (count<6) ? 
                     ( <div className='flex gap-4 h-10 text-white text-xl p-1'>
                         <input className='bg-blue-900 w-full max-w-[150px] text-center  rounded-md' 
-                        type='number' min={0} max={7} value={count}
+                        type='number' min={0} max={6} value={count}
                         onChange={handleChange} placeholder='Quantity' required />
                         <p className='bg-green-900 w-full max-w-[250px] text-center  rounded-md' >Total price: $ {totalPrice}</p>
                     </div>)
                         :
                     (<div className='flex gap-4 h-10 text-white text-xl p-1 rounded-md'>
                         <input className='bg-blue-900 w-full max-w-[150px] text-center rounded-md' 
-                        type='number' min={0} max={6} value={count}
+                        type='number' min={0} max={5} value={count}
                         onChange={handleChange} placeholder='Quantity' required />
                         <p className='bg-green-900 w-full max-w-[250px] text-center rounded-md' >Total price: $ {totalPrice}</p>
                         <span className='text-red-900 text-center p-1'>You can buy 5 tickets max.</span>

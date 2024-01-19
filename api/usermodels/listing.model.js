@@ -10,6 +10,10 @@ const listingSchema = new mongoose.Schema (
             type: String,
             required: true,
         },
+        type: {
+          type: String,
+          required: true,
+        },
         startsAt: {
             type: String,
             required: true,
