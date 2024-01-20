@@ -102,7 +102,18 @@ export default function Search() {
     }
     const onShowMore = async () => {
         const noOfListings = listings.length;
+        const startIndex = noOfListings;
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.set('startIndex', startIndex);
+        const searchQuery = urlParams.toString();
+        const res = await fetch(`/api/listing/get?${searchQuery}`);
+        const data = await res.json();
+        if (data.length < 9) {
+            setShowMore(false);
+        }
+        setListings([...listings, ...data]);
     }
+
   return (
     <div className='flex flex-col md:flex-row'>
         <div className='p-7 border-b-2 md:border-r-2 md:min-h-screen'>
@@ -217,10 +228,10 @@ export default function Search() {
 
                 {showMore && (
                     <button
-                    onClick={onShowMore}
-                    className='text-green-700 hover:underline p-7 text-center w-full'
+                        onClick={onShowMore}
+                        className='text-green-700 hover:underline p-7 text-center w-full'
                     >
-                    Show more
+                        Show more
                     </button>
                 )}
             </div>
