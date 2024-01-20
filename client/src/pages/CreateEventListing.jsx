@@ -28,7 +28,7 @@ export default function CreateEventListing() {
     const [loadingEffect, setLoadingEffect] = useState(false);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
-    console.log(formData);
+    //console.log(formData);
 
     const handleImageSubmit = (e) => {
         if (files.length > 0 && files.length + formData.imageUrls.length < 7) {

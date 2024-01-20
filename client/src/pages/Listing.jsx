@@ -104,7 +104,7 @@ export default function Listing() {
             </p>
             <div className='flex gap-4'>
                 <p className='bg-blue-900 w-full max-w-[200px] h-10 text-white text-center p-1 rounded-md'>
-                    {eventListing.type === 'private' ? '{<FaUser-lock>}Private Event' : 'Social Event'}
+                    {eventListing.type === 'private' ? 'Private Event' : 'Social Event'}
                 </p>
                 <p className='text-2xl font-semibold bg-blue-900 w-full max-w-[150px] h-10 text-white text-center p-1 rounded-md'>
                     ${''}
