@@ -10,6 +10,7 @@ import CreateEventListing from './pages/CreateEventListing';
 import PrivateRoute from './components/PrivateRoute';
 import UpdateEventListing from './pages/updateEventListing';
 import Listing from './pages/Listing';
+import Search from './pages/Search';
 
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/home' element={<Home />}/>
         <Route path='/about' element={<About />}/>
+        <Route path='/search' element={<Search />} />
         <Route path='/listing/:listingId' element={<Listing />}/>
         <Route element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />}/>
