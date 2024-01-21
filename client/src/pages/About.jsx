@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className='py-20 px-4 max-w-6xl mx-auto'>
       <h1 className='text-3xl font-bold mb-4 text-slate-800'>About WePlan</h1>
-      <div className='fixed left-[25%] top-[13%] right-[25%] z-10 w-50 h-12 flex justify-center items-center bg-transparent cursor-pointer text-3xl text-blue-700'>
+      <div className='fixed left-[25%] top-[13%] right-[25%] z-10 w-50 h-12 flex justify-center items-center bg-slate-500 cursor-pointer text-3xl font-bold text-blue-700'>
                 WePlan - Bringing the world together from experiences!
           </div>
       <img 
