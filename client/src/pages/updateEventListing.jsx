@@ -33,14 +33,11 @@ export default function UpdateEventListing() {
     useEffect(() => {
         const fetchEventListing = async () => {
             const listingId = params.listingId;
-            console.log(listingId)
             const res = await fetch(`/api/listing/get/${listingId}`)
             const data = await res.json();
             if(data.success === false) {
-                console.log(data.message);
                 return;
             }
-            console.log('update listing data', data);
             setFormData(data);
         }
         fetchEventListing();
@@ -61,13 +58,13 @@ export default function UpdateEventListing() {
                         ...formData, imageUrls: formData.imageUrls.concat(urls),
                     })
                     //formData.imageUrls.push(...urls),
-                    console.log('imageUrls', formData.imageUrls);
+                    //console.log('imageUrls', formData.imageUrls);
                     setImageUploadError(false);
                     setUploading(false);
                 })
                 .catch((err) => {
-                    console.log(err)
-                    setImageUploadError('Image upload failed (2 mb max per image)');
+                    //console.log(err)
+                    setImageUploadError('Image upload failed (4 mb max per image)');
                     setUploading(false);
                 });
         } else {
@@ -86,7 +83,7 @@ export default function UpdateEventListing() {
                 (snapshot) => {
                     const progress =
                         (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log(`Upload is ${progress}% done`);
+                    //console.log(`Upload is ${progress}% done`);
                 },
                 (error) => {
                     reject(error);

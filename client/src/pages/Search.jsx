@@ -97,7 +97,7 @@ export default function Search() {
         urlParams.set('sort', sidebardata.sort);
         urlParams.set('order', sidebardata.order);
         const searchQuery = urlParams.toString();
-        console.log(searchQuery)
+        //console.log(searchQuery)
         navigate(`/search?${searchQuery}`);
     }
     const onShowMore = async () => {

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function CreateEventListing() {
     const { currentUser } = useSelector((state) => state.user);
     const [files, setFiles] = useState([]);
-    console.log(files);
+    //console.log(files);
     const [formData, setFormData] = useState({
         name: '',
         description: '',
@@ -45,13 +45,13 @@ export default function CreateEventListing() {
                         ...formData, imageUrls: formData.imageUrls.concat(urls),
                     })
                     //formData.imageUrls.push(...urls),
-                    console.log('imageUrls', formData.imageUrls);
+                    //console.log('imageUrls', formData.imageUrls);
                     setImageUploadError(false);
                     setUploading(false);
                 })
                 .catch((err) => {
-                    console.log(err)
-                    setImageUploadError('Image upload failed (2 mb max per image)');
+                    //console.log(err)
+                    setImageUploadError('Image upload failed (4 mb max per image)');
                     setUploading(false);
                 });
         } else {

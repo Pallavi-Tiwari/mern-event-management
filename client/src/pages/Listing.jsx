@@ -51,7 +51,7 @@ export default function Listing() {
         fetchEventListing();
     }, [params.listingId]);
 
-    const handleChange = (e) => {console.log(typeof(count),count);
+    const handleChange = (e) => {
         setCount(parseInt(e.target.value));
         setTotalPrice(parseInt(e.target.value) * eventListing.regularPrice);
     }
