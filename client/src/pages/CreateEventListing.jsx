@@ -128,7 +128,7 @@ export default function CreateEventListing() {
                 },
                 body: JSON.stringify({
                     ...formData,
-                    useRef: currentUser._id,
+                    userRef: currentUser._id,
                 }),
             });
             const data = await res.json();

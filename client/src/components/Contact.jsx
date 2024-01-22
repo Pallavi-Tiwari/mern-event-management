@@ -13,13 +13,12 @@ export default function Contact({eventListing}) {
             const res = await fetch(`/api/user/${eventListing.userRef}`);
             const data = await res.json();
             setAgentDetails(data);
-            console.log(agentDetails);
         } catch(error) {
             console.log(error);
         }
       };
       fetchAgentDetails();
-    }, [eventListing.userRef])
+    }, [])
   return (
     <>
      {agentDetails && (
@@ -40,7 +39,7 @@ export default function Contact({eventListing}) {
             ></textarea>
 
             <Link
-                to={`mailto:${agentDetails.email} ${eventListing.name}&body=${message}`}
+                to={`mailto:${agentDetails.email}?subject=${eventListing.name}&body=${message}`}
                 className='bg-slate-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95'
             >
                 Send Message

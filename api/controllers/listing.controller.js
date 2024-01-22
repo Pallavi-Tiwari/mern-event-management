@@ -15,7 +15,7 @@ export const deleteListing = async (req, res, next) => {
     if(!listing) {
         return next(errorHandler(404, 'This event listing not found!'))
     }
-    if(req.user.id !== listing.useRef) {
+    if(req.user.id !== listing.userRef) {
         return next(errorHandler(401, 'You can only delete listing created by this account'));
     }
     try {
@@ -31,7 +31,7 @@ export const updateListing = async (req, res, next) => {
     if(!listing) {
         return next(errorHandler(404, 'Listing not found!'));
     }
-    if(req.user.id !== listing.useRef){
+    if(req.user.id !== listing.userRef){
         return next(errorHandler(401, 'You can only update your own listings!'));
     }
 

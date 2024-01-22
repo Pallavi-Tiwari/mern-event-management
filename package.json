@@ -19,7 +19,7 @@
     "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
-  "author": "",
+  "author": "Pallavi Tiwari",
   "license": "ISC",
-  "description": ""
+  "description": "This website is made to create, attend or manage events around your neighborhood using MERN stack, vite, firebase and render for hosting."
 }
