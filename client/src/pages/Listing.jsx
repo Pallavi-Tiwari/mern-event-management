@@ -109,8 +109,8 @@ export default function Listing() {
                 <p className='text-2xl font-semibold bg-blue-900 w-full max-w-[150px] h-10 text-white text-center p-1 rounded-md'>
                     ${''}
                     {eventListing.offer
-                        ? eventListing.regularPrice.toLocaleString('en-US')
-                        : eventListing.discountPrice.toLocaleString('en-US')}
+                        ? eventListing.discountPrice.toLocaleString('en-US')
+                        : eventListing.regularPrice.toLocaleString('en-US')}
                     {eventListing.type === 'private' && ' /ticket'}
                 </p>
                 {eventListing.offer && (
@@ -119,7 +119,7 @@ export default function Listing() {
                     </p>
                 )}  
             </div>
-                {(count===0) || (count<6) ? 
+                {/* {(count===0) || (count<6) ? 
                     ( <div className='flex gap-4 h-10 text-white text-xl p-1'>
                         <input className='bg-blue-900 w-full max-w-[150px] text-center  rounded-md' 
                         type='number' min={0} max={6} value={count}
@@ -134,7 +134,7 @@ export default function Listing() {
                         <p className='bg-green-900 w-full max-w-[250px] text-center rounded-md' >Total price: $ {totalPrice}</p>
                         <span className='text-red-900 text-center p-1'>You can buy 5 tickets max.</span>
                     </div>)
-                }
+                } */}
             <p className='text-slate-800'>
               <span className='font-semibold text-black'>Description - </span>
               {eventListing.description}
@@ -152,9 +152,7 @@ export default function Listing() {
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaChair  className='text-lg' />
-                {eventListing.seats > 1
-                  ? `${eventListing.seats} seats `
-                  : `${eventListing.seats} seat `}
+                {eventListing.seats}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />

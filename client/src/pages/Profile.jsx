@@ -22,7 +22,7 @@ export default function Profile() {
   //firebase storage rules:
   // allow read;
   //     allow write: if 
-  //     request.resource.size = 2* 1024 * 1024 &&
+  //     request.resource.size = 4* 1024 * 1024 &&
   //     request.resource.contentType.matches('image/.*');
 
   useEffect(() => {

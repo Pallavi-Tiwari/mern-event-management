@@ -148,49 +148,49 @@ export default function CreateEventListing() {
             <h1 className='text-3xl font-semibold text-center my-7'>Create an Event Listing</h1>
             <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
                 <div className='flex flex-col gap-4 flex-1'>
-                    <input type='text' placeholder='Event Name' className='border p-3 rounded-lg' id='name' maxLength='62' minLength='10' required onChange={handleChange} value={formData.value} />
-                    <textarea type='text' placeholder='Event Description' className='border p-3 rounded-lg' id='description' required onChange={handleChange} value={formData.value}/>
-                    <input type='text' placeholder='Location' className='border p-3 rounded-lg' id='location' required onChange={handleChange} value={formData.value} />
-                    <input type='text' placeholder='Starts At' className='border p-3 rounded-lg' id='startsAt' required onChange={handleChange} value={formData.value} />
+                    <input type='text' placeholder='Event Name' className='border p-3 rounded-lg' id='name' maxLength='62' minLength='10' required onChange={handleChange} value={formData.name} />
+                    <textarea type='text' placeholder='Event Description' className='border p-3 rounded-lg' id='description' required onChange={handleChange} value={formData.description}/>
+                    <input type='text' placeholder='Location' className='border p-3 rounded-lg' id='location' required onChange={handleChange} value={formData.location} />
+                    <input type='text' placeholder='Starts At' className='border p-3 rounded-lg' id='startsAt' required onChange={handleChange} value={formData.startsAt} />
                     <div className='flex gap-16 flex-wrap'>
                         <div className='flex gap-3'>
-                            <input type='checkbox' id='social' className='w-5'  onChange={handleChange} value={formData.value} checked={formData.type === 'social'}/>
+                            <input type='checkbox' id='social' className='w-5'  onChange={handleChange} value={formData.type} checked={formData.type === 'social'}/>
                             <span>Social</span>
                         </div>
                         <div className='flex gap-2'>
-                            <input type='checkbox' id='private' className='w-5' onChange={handleChange} value={formData.value} checked={formData.type === 'private'} />
+                            <input type='checkbox' id='private' className='w-5' onChange={handleChange} value={formData.type} checked={formData.type === 'private'} />
                             <span>Private</span>
                         </div>
                         <div className='flex gap-3'>
-                            <input type='checkbox' id='parking' className='w-5' onChange={handleChange} value={formData.value} checked={formData.parking} />
+                            <input type='checkbox' id='parking' className='w-5' onChange={handleChange} value={formData.parking} checked={formData.parking} />
                             <span>Parking</span>
                         </div>
                         <div className='flex gap-3'>
-                            <input type='checkbox' id='offer' className='w-5' onChange={handleChange} value={formData.value} checked={formData.offer} />
+                            <input type='checkbox' id='offer' className='w-5' onChange={handleChange} value={formData.offer} checked={formData.offer} />
                             <span>Offer</span>
                         </div>
                     </div>
                     <div className='flex flex-wrap gap-6'>
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='duration' min='1' max='720' required onChange={handleChange} value={formData.value} checked={formData.duration} />  
+                            <input type='number' id='duration' min='1' max='720' required onChange={handleChange} value={formData.duration} />  
                             <div className='flex flex-col items-center'>
                                 <p>Duration</p>
                                 <span className='text-xs'>(in mins)</span>
                             </div>
                         </div>
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='ageAllowed' min='0' max='90' required onChange={handleChange} value={formData.value} checked={formData.ageAllowed} />
+                            <input type='number' id='ageAllowed' min='0' max='90' required onChange={handleChange} value={formData.ageAllowed} />
                             <div className='flex flex-col items-center'>
                                 <p>Age Allowed Above</p>
                                 <span className='text-xs'>(in years)</span>
                             </div>
                         </div>
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='seats' min='1' max='5000' required onChange={handleChange} value={formData.value} checked={formData.seats} />
+                            <input type='number' id='seats' min='1' required onChange={handleChange} value={formData.seats}/>
                             <p>Seats</p>
                         </div>
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='regularPrice' min='5' max='2000' required onChange={handleChange} value={formData.value} checked={formData.regularPrice} />
+                            <input type='number' id='regularPrice' min='5' max='2000' required onChange={handleChange} value={formData.regularPrice} />
                             <div className='flex flex-col items-center'>
                                 <p>Regular price</p>
                                 <span className='text-xs'>($ / ticket)</span>
@@ -198,9 +198,9 @@ export default function CreateEventListing() {
                         </div>
                         {formData.offer && (
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='discountPrice' min='0' max='50' required onChange={handleChange} value={formData.value} checked={formData.discountPrice} />
+                            <input type='number' id='discountPrice' min='0' required onChange={handleChange} value={formData.discountPrice} />
                             <div className='flex flex-col items-center'>
-                                <p>Discounted price</p>
+                                <p>Discount price</p>
                                 <span className='text-xs'>($ / ticket)</span>
                             </div>
                         </div>

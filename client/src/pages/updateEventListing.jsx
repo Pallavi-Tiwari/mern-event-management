@@ -214,7 +214,7 @@ export default function UpdateEventListing() {
                         </div>
                         {formData.offer && (
                         <div className='flex items-center gap-4'>
-                            <input type='number' id='discountPrice' min='0' max='50' required onChange={handleChange} value={formData.discountPrice} />
+                            <input type='number' id='discountPrice' min='0' required onChange={handleChange} value={formData.discountPrice} />
                             <div className='flex flex-col items-center'>
                                 <p>Discounted price</p>
                                 <span className='text-xs'>($ / ticket)</span>
